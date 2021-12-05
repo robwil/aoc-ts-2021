@@ -1,6 +1,8 @@
 import { formatFileName, openFileReader } from '../shared/file';
 
-interface ColumnsTally { [column: number]: { zeroes: number; ones: number } }
+interface ColumnsTally {
+  [column: number]: { zeroes: number; ones: number };
+}
 
 function computeBitsTally(grid: number[][]): ColumnsTally {
   return grid.reduce((tally, cur) => {
