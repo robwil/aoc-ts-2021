@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+      "target": "es2020",
+      "outDir": "./dist",
+      "strict": true,
+      "typeRoots": ["node_modules/@types"],
+      "types": ["node"],
+      "esModuleInterop": true,
+      "inlineSourceMap": false
+    },
+    "include": ["src/**/*.ts"],
+    "exclude": ["node_modules", "**/*.spec.ts"]
+  }
+  
