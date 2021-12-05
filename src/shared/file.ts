@@ -11,3 +11,7 @@ export async function openFileReader(
   });
   return rl;
 }
+
+export function formatFileName(day: number, example: boolean) {
+  return `src/day${day}/${example ? 'example' : 'input'}.txt`;
+}
