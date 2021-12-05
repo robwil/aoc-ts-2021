@@ -33,7 +33,8 @@ function processBingoBoard(
   if (bingoBoard.length === 0) {
     // first newline when parsing happens before we have a board, so just do nothing with this
     return;
-  }  if (bingoBoard.length !== 5) {
+  }
+  if (bingoBoard.length !== 5) {
     throw new Error('expected Bingo board of 5 rows');
   }
   boardTracking[boardNumber] = {
@@ -91,7 +92,7 @@ export async function day4({ example }: { example: boolean }) {
     if (line.trim().length === 0) {
       processBingoBoard(boardNumber, bingoBoard, numberBingoMap, boardTracking);
       bingoBoard = [];
-      boardNumber++;
+      boardNumber += 1;
       continue;
     }
     bingoBoard.push(line);
@@ -103,12 +104,15 @@ export async function day4({ example }: { example: boolean }) {
   for (const number of chosenNumbers) {
     const hits = numberBingoMap[number] || [];
     for (const hit of hits) {
-      const { boardNumber } = hit;
-      delete boardTracking[boardNumber].unpickedNumbers[number];
-      boardTracking[boardNumber].pickedNumbers.push(number);
-      hit.chosenSoFar++;
-      if (hit.chosenSoFar === 5 && !boardTracking[boardNumber].boardWon) {
-        const winningBoard = boardNumber;
+      const { boardNumber: currentBoardNumber } = hit;
+      delete boardTracking[currentBoardNumber].unpickedNumbers[number];
+      boardTracking[currentBoardNumber].pickedNumbers.push(number);
+      hit.chosenSoFar += 1;
+      if (
+        hit.chosenSoFar === 5 &&
+        !boardTracking[currentBoardNumber].boardWon
+      ) {
+        const winningBoard = currentBoardNumber;
         boardTracking[winningBoard].boardWon = true;
         const unpickedSum = lodash.sum(
           Object.keys(boardTracking[winningBoard].unpickedNumbers).map((x) =>
@@ -118,7 +122,7 @@ export async function day4({ example }: { example: boolean }) {
         if (part1 === 0) {
           // record first winning board for part1
           part1 = unpickedSum * number;
-          console.log({ winningBoard, unpickedSum, number, part1 });
+          //   console.log({ winningBoard, unpickedSum, number, part1 });
         }
         // record all other winning boards to part2
         // the last one to be written here will be the answer
@@ -126,6 +130,6 @@ export async function day4({ example }: { example: boolean }) {
       }
     }
   }
-  console.log({ part2 });
+  //   console.log({ part2 });
   return { part1, part2 };
 }

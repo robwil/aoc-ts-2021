@@ -11,9 +11,9 @@ function computeBitsTally(grid: number[][]): ColumnsTally {
         tally[colIdx] = { ones: 0, zeroes: 0 };
       }
       if (cur[colIdx] === 0) {
-        tally[colIdx].zeroes++;
+        tally[colIdx].zeroes += 1;
       } else {
-        tally[colIdx].ones++;
+        tally[colIdx].ones += 1;
       }
     }
     return tally;

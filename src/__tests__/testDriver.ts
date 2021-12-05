@@ -1,6 +1,20 @@
+import { day1 } from '../day1/day1';
 import { day2 } from '../day2/day2';
 import { day3 } from '../day3/day3';
 import { day4 } from '../day4/day4';
+
+describe('day1', () => {
+  it('passes with the example input', async () => {
+    const { part1, part2 } = await day1({ example: true });
+    expect(part1).toEqual(7);
+    expect(part2).toEqual(5);
+  });
+  it('passes with the real input', async () => {
+    const { part1, part2 } = await day1({ example: false });
+    expect(part1).toEqual(1154);
+    expect(part2).toEqual(1127);
+  });
+});
 
 describe('day2', () => {
   it('passes with the example input', async () => {

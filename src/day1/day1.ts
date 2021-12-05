@@ -1,9 +1,9 @@
 import lodash from 'lodash';
-import { openFileReader } from '../shared/file';
+import { formatFileName, openFileReader } from '../shared/file';
 
-async function main(): Promise<void> {
+export async function day1({ example }: { example: boolean }) {
   // part 1
-  let rl = await openFileReader('src/day1/input.txt');
+  let rl = await openFileReader(formatFileName(1, example));
   let increasedCount = 0;
   let previous: number | undefined;
   for await (const line of rl) {
@@ -11,14 +11,15 @@ async function main(): Promise<void> {
     if (previous === undefined) {
       previous = current;
     } else if (previous < current) {
-      increasedCount++;
+      increasedCount += 1;
     }
     previous = current;
   }
-  console.log({ part1: increasedCount });
+  const part1 = increasedCount;
+  // console.log({ part1: increasedCount });
 
   // part 2
-  rl = await openFileReader('src/day1/input.txt');
+  rl = await openFileReader(formatFileName(1, example));
   let window1: number[] = [];
   let window2: number[] = [];
   let window3: number[] = [];
@@ -28,7 +29,7 @@ async function main(): Promise<void> {
     const current = Number(line);
     if (i === 0) {
       window1.push(current);
-    } else if (i == 1) {
+    } else if (i === 1) {
       window1.push(current);
       window2.push(current);
     } else {
@@ -47,7 +48,7 @@ async function main(): Promise<void> {
         const window1sum = lodash.sum(window1);
         const window2sum = lodash.sum(window2);
         if (window1sum < window2sum) {
-          increasedCount++;
+          increasedCount += 1;
         }
         // shift all windows to the left:
         // window1 1 2 3
@@ -58,9 +59,9 @@ async function main(): Promise<void> {
         window3 = [current];
       }
     }
-    i++;
+    i += 1;
   }
-  console.log({ part2: increasedCount });
+  const part2 = increasedCount;
+  // console.log({ part2: increasedCount });
+  return { part1, part2 };
 }
-
-main().catch(console.error);

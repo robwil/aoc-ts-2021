@@ -1,0 +1,44 @@
+{
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "airbnb-base",
+        "plugin:prettier/recommended",
+        "plugin:jest/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+        "@typescript-eslint",
+        "prettier",
+        "jest"
+    ],
+    "ignorePatterns": [
+        "dist/**"
+    ],
+    "rules": {
+        "prettier/prettier": "error",
+        "@typescript-eslint/indent": [
+            "error",
+            2
+        ],
+        "@typescript-eslint/no-unused-vars": "error",
+        "@typescript-eslint/no-explicit-any": "error",
+        "import/no-extraneous-dependencies": [
+            "error",
+            {
+                "devDependencies": [
+                    "**/*.spec.ts"
+                ]
+            }
+        ],
+        "import/prefer-default-export": 0,
+        "import/extensions": 0,
+        "import/no-unresolved": 0,
+        "class-methods-use-this": 0,
+        "@typescript-eslint/ban-ts-comment": 0,
+        "no-param-reassign": 0,
+        "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+        "no-restricted-syntax": 0,
+        "no-continue": 0
+    }
+}
