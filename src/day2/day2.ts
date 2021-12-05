@@ -32,7 +32,7 @@ export async function day2({ example }: { example: boolean }) {
     { x: 0, y: 0 }
   );
   const part1 = result.x * result.y;
-  console.log({ result, part1 });
+  // console.log({ result, part1 });
 
   // part 2
   result = commands.reduce(
@@ -56,6 +56,6 @@ export async function day2({ example }: { example: boolean }) {
     { x: 0, y: 0, aim: 0 }
   );
   const part2 = result.x * result.y;
-  console.log({ result, part2 });
+  // console.log({ result, part2 });
   return { part1, part2 };
 }

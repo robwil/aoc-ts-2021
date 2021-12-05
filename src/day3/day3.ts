@@ -43,7 +43,7 @@ export async function day3({ example }: { example: boolean }) {
   const gamma = parseInt(gammaBinary, 2);
   const epsilon = parseInt(epsilonBinary, 2);
   const part1 = gamma * epsilon;
-  console.log({ part1, gamma, epsilon });
+  // console.log({ part1, gamma, epsilon });
 
   // part2
   // we can use our existing tally from part1 to help with the filtering
@@ -89,7 +89,7 @@ export async function day3({ example }: { example: boolean }) {
   const oxygen = parseInt(oxygenBinary, 2);
   const co2 = parseInt(co2Binary, 2);
   const part2 = oxygen * co2;
-  console.log({ oxygen, co2, part2 });
+  // console.log({ oxygen, co2, part2 });
 
   return { part1, part2 };
 }
