@@ -3,6 +3,7 @@ import { day2 } from '../day2/day2';
 import { day3 } from '../day3/day3';
 import { day4 } from '../day4/day4';
 import { day5 } from '../day5/day5';
+import { day6 } from '../day6/day6';
 
 describe('day1', () => {
   it('passes with the example input', async () => {
@@ -66,5 +67,18 @@ describe('day5', () => {
     const { part1, part2 } = await day5({ example: false });
     expect(part1).toEqual(6113);
     expect(part2).toEqual(20373);
+  });
+});
+
+describe('day6', () => {
+  it('passes with the example input', async () => {
+    const { part1, part2 } = await day6({ example: true });
+    expect(part1).toEqual(5934);
+    expect(part2).toEqual(26984457539);
+  });
+  it('passes with the real input', async () => {
+    const { part1, part2 } = await day6({ example: false });
+    expect(part1).toEqual(387413);
+    expect(part2).toEqual(1738377086345);
   });
 });
