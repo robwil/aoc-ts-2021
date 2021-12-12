@@ -5,6 +5,7 @@ import { day4 } from '../day4/day4';
 import { day5 } from '../day5/day5';
 import { day6 } from '../day6/day6';
 import { day7 } from '../day7/day7';
+import { day10 } from '../day10/day10';
 import { day11 } from '../day11/day11';
 import { day12 } from '../day12/day12';
 
@@ -96,6 +97,19 @@ describe('day7', () => {
     const { part1, part2 } = await day7({ example: false });
     expect(part1).toEqual(323647);
     expect(part2).toEqual(87640209);
+  });
+});
+
+describe('day10', () => {
+  it('passes with the example input', async () => {
+    const { part1, part2 } = await day10({ example: true });
+    expect(part1).toEqual(26397);
+    expect(part2).toEqual(288957);
+  });
+  it('passes with the real input', async () => {
+    const { part1, part2 } = await day10({ example: false });
+    expect(part1).toEqual(343863);
+    expect(part2).toEqual(2924734236);
   });
 });
 
