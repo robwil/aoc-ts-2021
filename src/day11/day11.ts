@@ -21,7 +21,6 @@ function applyEnergy(octopusGrid: number[][], x: number, y: number) {
 }
 
 export async function day11({ example }: { example: boolean }) {
-  // part 1
   const rl = await openFileReader(formatFileName(11, example));
   const octopusGrid: number[][] = [];
   for await (const line of rl) {
